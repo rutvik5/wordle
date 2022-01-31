@@ -39,8 +39,6 @@ for idx in range(len(player_word)):
         yellow_letters.append(player_word[idx].lower())
         player_word[idx] = '_'
 
-print(player_word)
-print(yellow_letters)
 indices = [idx for idx in range(len(player_word)) if player_word[idx] == '_']
 
 res = []
