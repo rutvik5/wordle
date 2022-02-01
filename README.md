@@ -7,6 +7,10 @@ Running the python3 script will ask you for an input to start with. Enter a word
    - Use small letters for green letters
    - Use underscore for a black/white letters
 
+### Exclude letters from predictions:
+ - Add the letters you do not want in the prediction
+ - Update ```exclude[]```
+
 Example: 
 
 Input: 
@@ -45,4 +49,6 @@ Output:
     alure
     aware
     arche
+
+
 
