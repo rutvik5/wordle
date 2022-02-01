@@ -4,10 +4,14 @@ from string import ascii_lowercase
 def fill_word(indices, curr_word, res, yellow_letters):
     if curr_word.count('_') == 0:
         word = ''.join(curr_word)
-        for letter in yellow_letters:
-            if letter in word:
-                if word in english_words:
-                    res.append(''.join(curr_word))
+        if len(yellow_letters) > 0:
+            for letter in yellow_letters:
+                if letter in word:
+                    if word in excluded_words:
+                        res.append(''.join(curr_word))
+        else:
+            if word in excluded_words:
+                res.append(''.join(curr_word))
     
     for index in indices[::-1]:
         for letter in letters:
@@ -42,6 +46,17 @@ for idx in range(len(player_word)):
 indices = [idx for idx in range(len(player_word)) if player_word[idx] == '_']
 
 res = []
+exclude = ['i', 'u', 'p', 'r', 'a', 'l']
+
+excluded_words = []
+for word in english_words:
+    contains = False
+    for letter in exclude:
+        if letter in word:
+            contains = True
+    if not contains:
+        excluded_words.append(word)
+
 fill_word(indices, player_word, res, yellow_letters)
 
 print()
@@ -52,5 +67,3 @@ print()
 
 for word in res:
     print(word)
-
-
